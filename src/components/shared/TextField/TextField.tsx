@@ -102,7 +102,8 @@ interface TextAreaProps
   extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "id"> { }
 
 export const TextArea = ({ ...props }: TextAreaProps) => {
-  return <textarea {...props} />;
+
+  return <textarea className="relative rounded-lg border border-gray-100 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600 w-full py-3.5 pl-4 h-28 outline-none mt-6"  {...props} />;
 };
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {

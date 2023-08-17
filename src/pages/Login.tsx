@@ -1,8 +1,12 @@
-import { Form } from "@/components/Auth/Login/Form"
+import { Form } from "@/components/pages/Login"
+import { FormContainer, FormOverview } from "@/components/shared"
 
 const Login = () => {
     return (
-        <Form />
+        <FormContainer>
+            <FormOverview title="Sign In" extraText="Please Fill Your Information" />
+            <Form />
+        </FormContainer>
     )
 }
 
