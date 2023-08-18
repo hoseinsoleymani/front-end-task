@@ -1,3 +1,4 @@
+import { Authentication } from "@/components/Auth";
 import { Link } from "react-router-dom";
 
 type NavigationLinks = {
@@ -12,7 +13,6 @@ type NavigationLinks = {
 const navigationLinks: Array<NavigationLinks> = [
   { label: 'Posts', path: '/' },
   { label: 'Create Task', path: '/create-task' },
-  { label: 'Login', path: '/auth/login' },
 ]
 
 export const Nav = () => {
@@ -22,9 +22,7 @@ export const Nav = () => {
         {navigationLinks.map(({ label, path }) => <Link to={path}>{label}</Link>)}
       </nav>
 
-      <div>
-        <Link to="/">Hosein Soleymani</Link>
-      </div>
+      <Authentication />
     </header>
   );
 };
