@@ -5,7 +5,7 @@ interface FormOverviewProps {
 
 export const FormOverview = ({ title, extraText }: FormOverviewProps) => {
     return (
-        <div className="mb-10">
+        <div>
             <h1 className="text-primary-200 text-2xl font-bold">
                 {title}
             </h1>

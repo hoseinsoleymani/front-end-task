@@ -1,10 +1,12 @@
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 
 import { Button, TextArea, TextField } from "@/components/shared";
-import { useNavigate } from "react-router-dom";
 
-export const Form = () => {
-    const router = useNavigate();
+interface FormProps {
+    submitForm: (value: FieldValues) => void
+}
+
+export const Form = ({ submitForm }: FormProps) => {
 
     const {
         handleSubmit,
@@ -14,12 +16,9 @@ export const Form = () => {
         mode: "onChange",
     });
 
-    const submitForm = handleSubmit(({ username, password, remember }) => {
-
-    });
 
     return (
-        <form onSubmit={submitForm}>
+        <form onSubmit={handleSubmit(submitForm)}>
             <TextField
                 {...register("title", {
                     required: true,
@@ -27,7 +26,7 @@ export const Form = () => {
                 type="text"
                 name="title"
                 label="Title"
-                className="block mt-6 w-full"
+                className="block my-6 w-full"
                 invalid={
                     clientFormError.title?.type === "required"
                 }

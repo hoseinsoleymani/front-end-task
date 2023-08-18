@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 
 import { Button, TextField } from "@/components/shared";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "@/app/authenticationSlice";
 
 export const Form = () => {
-  const router = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const {
     handleSubmit,
@@ -14,14 +17,9 @@ export const Form = () => {
     mode: "onChange",
   });
 
-  const submitForm = handleSubmit(({ username, password, remember }) => {
-    // login({
-    //   setErrors,
-    //   setStatus,
-    //   username,
-    //   password,
-    //   remember,
-    // });
+  const submitForm = handleSubmit(({ username, password }) => {
+    dispatch(login({ username, password }))
+    // navigate("/")
   });
 
   return (
@@ -33,7 +31,7 @@ export const Form = () => {
           maxLength: 100,
         })}
         type="text"
-        name="username"
+        name="username"ی
         label="User Name"
         className="block mt-6 w-full"
         invalid={

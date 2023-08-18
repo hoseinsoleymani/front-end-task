@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "userName": "Hosein",
+      "password": "admin1234",
+      "email": "hoseinsolleymani@gmail.com",
+      "fullName": "Hosein Soleymani"
+    },
+    {
+      "id": "2",
+      "userName": "Test",
+      "password": "admin1234",
+      "email": "hoseinsolleymani@gmail.com",
+      "fullName": "Hosein Soleymani"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Test Title",
+      "description": "Test Desc",
+      "id": 2
+    }
+  ]
+}

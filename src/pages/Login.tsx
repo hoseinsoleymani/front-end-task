@@ -3,10 +3,14 @@ import { FormContainer, FormOverview } from "@/components/shared"
 
 const Login = () => {
     return (
-        <FormContainer>
-            <FormOverview title="Sign In" extraText="Please Fill Your Information" />
-            <Form />
-        </FormContainer>
+        <main>
+            <FormContainer>
+                <div className="mb-10">
+                    <FormOverview title="Sign In" extraText="Please Fill Your Information" />
+                </div>
+                <Form />
+            </FormContainer>
+        </main>
     )
 }
 

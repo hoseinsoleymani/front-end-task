@@ -11,7 +11,7 @@ type NavigationLinks = {
 }
 
 const navigationLinks: Array<NavigationLinks> = [
-  { label: 'Posts', path: '/' },
+  { label: 'Tasks', path: '/' },
   { label: 'Create Task', path: '/create-task' },
 ]
 
@@ -19,7 +19,7 @@ export const Nav = () => {
   return (
     <header className="flex items-center justify-between py-6 container">
       <nav className="flex items-center gap-x-3.5">
-        {navigationLinks.map(({ label, path }) => <Link to={path}>{label}</Link>)}
+        {navigationLinks.map(({ label, path }) => <Link key={path} to={path}>{label}</Link>)}
       </nav>
 
       <Authentication />

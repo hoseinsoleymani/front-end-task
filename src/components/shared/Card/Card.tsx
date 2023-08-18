@@ -21,7 +21,7 @@ export const Card = ({
       <p className="my-5 text-gray-400">{description}</p>
 
       <Button asChild>
-        <Link to={`tasks/:${id}`}>
+        <Link to={`tasks/${id}`}>
           Show Task Detail
         </Link>
       </Button>
