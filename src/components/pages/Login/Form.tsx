@@ -4,6 +4,7 @@ import { Button, TextField } from "@/components/shared";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "@/app/authenticationSlice";
+import { AUTH_USER_KEY } from "@/lib/axios";
 
 export const Form = () => {
   const navigate = useNavigate();
@@ -18,7 +19,14 @@ export const Form = () => {
   });
 
   const submitForm = handleSubmit(({ username, password }) => {
-    dispatch(login({ username, password }))
+    const user = {
+      username,
+      password
+    }
+
+    dispatch(login(user))
+    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user))
+
     navigate("/")
   });
 
@@ -60,21 +68,7 @@ export const Form = () => {
         errorMessage="Password is Required"
       />
 
-      <div className="block mt-12">
-        <label htmlFor="remember_me" className="inline-flex items-center">
-          <input
-            {...register("remember")}
-            id="remember_me"
-            type="checkbox"
-            name="remember"
-            className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-
-          <span className="ml-2 text-sm text-gray-600">Remember me</span>
-        </label>
-      </div>
-
-      <div className="flex items-center">
+      <div className="flex items-center mt-12">
         <Button
           disabled={!isValid}
           className={`mt-6`}

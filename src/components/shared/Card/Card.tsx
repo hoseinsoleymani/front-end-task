@@ -1,4 +1,3 @@
-import { type PropsWithChildren } from "react";
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,7 @@ export const Card = ({
   title,
   description,
   id,
-}: PropsWithChildren<CardProps>) => {
+}: CardProps) => {
   return (
     <div className="bg-white rounded-2xl shadow-[0_8px_16px_0px_#6264F03D] p-4 mt-4">
       <h2 className="font-bold text-2xl">{title}</h2>

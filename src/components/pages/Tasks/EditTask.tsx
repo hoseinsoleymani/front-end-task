@@ -3,17 +3,23 @@ import { PencilIcon } from "@heroicons/react/24/outline"
 import { Form } from "./Form"
 import { FieldValues } from "react-hook-form"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 interface EditTaskProps {
     id: string
 }
 
 export const EditTask = ({ id }: EditTaskProps) => {
-    const [editTask, { isLoading }] = useUpdateTaskMutation()
+    const [editTask, { isLoading, error }] = useUpdateTaskMutation()
     const [showEditForm, setShowEditForm] = useState(false)
 
+    if (error) return toast.error(`Error occurred ${error}`)
+
+
     const submitForm = ({ title, description }: FieldValues) => {
-        editTask({ title, description, id })
+        editTask({ title, description, id }).then(() => {
+            toast.success("Successfully Edited!")
+        })
     };
 
     return (

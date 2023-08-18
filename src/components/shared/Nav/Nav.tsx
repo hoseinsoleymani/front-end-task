@@ -23,13 +23,13 @@ export const Nav = () => {
 
   return (
     <div className="flex items-center justify-between py-7">
-      <nav className={`flex-col transition-all flex gap-y-3.5 fixed bg-white bottom-0 top-0 w-64 z-10 px-7 py-7 shadow-md md:shadow-none md:gap-x-3.5 md:w-auto md:flex-row md:bg-transparent md:static md:flex md:items-center md:justify-between md:py-6 md:px-0 ${showSidebar ? '-left-64' : 'left-0'}`}>
+      <nav className={`flex-col transition-all flex gap-y-3.5 fixed bg-white bottom-0 top-0 w-64 z-10 px-7 py-7 shadow-md md:shadow-none md:gap-x-3.5 md:w-auto md:flex-row md:bg-transparent md:static md:flex md:items-center md:justify-between md:py-6 md:px-0 ${showSidebar ? 'left-0' : '-left-64'}`}>
         {navigationLinks.map(({ label, path }) => <Link key={path} to={path}>{label}</Link>)}
 
         <div className="block md:hidden">
           <Authentication />
         </div>
-      </nav> 
+      </nav>
 
       <SearchBox />
 
