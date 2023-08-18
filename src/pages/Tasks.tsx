@@ -1,6 +1,7 @@
 import { TasksSkeleton } from "@/components/pages/Tasks"
 import { EmptyMessage } from "@/components/shared"
 import { Card } from "@/components/shared/Card/Card"
+import { Loading } from "@/components/shared/Loading/Loading"
 import { useGetTasksQuery } from "@/data-layer/tasks"
 
 const Tasks = () => {

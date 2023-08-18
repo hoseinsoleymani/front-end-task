@@ -11,6 +11,6 @@ export const AddTask = () => {
 
 
     return (
-        <Form submitForm={submitForm} />
+        <Form submitForm={submitForm} loading={isLoading} />
     )
 }

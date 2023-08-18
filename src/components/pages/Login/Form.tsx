@@ -19,7 +19,7 @@ export const Form = () => {
 
   const submitForm = handleSubmit(({ username, password }) => {
     dispatch(login({ username, password }))
-    // navigate("/")
+    navigate("/")
   });
 
   return (
@@ -31,7 +31,7 @@ export const Form = () => {
           maxLength: 100,
         })}
         type="text"
-        name="username"ی
+        name="username"
         label="User Name"
         className="block mt-6 w-full"
         invalid={

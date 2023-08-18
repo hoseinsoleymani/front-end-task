@@ -10,7 +10,6 @@ export interface ButtonProps
   asChild?: boolean;
   variant?: ButtonVariant;
   disabled?: boolean;
-  isLoading?: boolean;
 }
 
 export const Button = ({
@@ -18,15 +17,12 @@ export const Button = ({
   disabled,
   variant = "primary",
   className,
-  isLoading,
   ...props
 }: ButtonProps) => {
   const Element = asChild ? Slot : "button";
 
   return (
     <div className={`${getButtonParentClassNames(variant)}`}>
-
-
       <Element
         className={`${getButtonClassNames(
           variant,
@@ -45,7 +41,7 @@ function getButtonClassNames(
   disabled: boolean | undefined
 ) {
   return mergeClassNames({
-    "rounded-lg text-sm flex justify-center w-full py-1.5 md:py-2.5 md:h-[3rem] w-full px-8 transition-all font-normal whitespace-nowrap shadow-[0_8px_16px_0px_#6264F03D]":
+    "rounded-lg text-sm flex justify-center w-full items-center h-[2rem] md:h-[3rem] w-full px-8 transition-all font-normal whitespace-nowrap shadow-[0_8px_16px_0px_#6264F03D]":
       true,
     "text-white bg-primary-100 hover:bg-transparent hover:text-primary-100 hover:border-primary-100 border-2":
       variant === "primary",

@@ -22,7 +22,7 @@ export const EditTask = ({ id }: EditTaskProps) => {
                 <PencilIcon className="w-7 text-gray-900" />
             </button>
 
-            {showEditForm ? <Form submitForm={submitForm} /> : null}
+            {showEditForm ? <Form submitForm={submitForm} loading={isLoading} /> : null}
         </div>
     )
 }

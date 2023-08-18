@@ -1,12 +1,13 @@
 import { FieldValues, useForm } from "react-hook-form";
 
-import { Button, TextArea, TextField } from "@/components/shared";
+import { Button, Loading, TextArea, TextField } from "@/components/shared";
 
 interface FormProps {
     submitForm: (value: FieldValues) => void
+    loading: boolean
 }
 
-export const Form = ({ submitForm }: FormProps) => {
+export const Form = ({ submitForm, loading }: FormProps) => {
 
     const {
         handleSubmit,
@@ -45,7 +46,7 @@ export const Form = ({ submitForm }: FormProps) => {
                     disabled={!isValid}
                     className={`mt-6`}
                 >
-                    Create
+                    {loading ? <Loading /> : "Create"}
                 </Button>
             </div>
         </form>
