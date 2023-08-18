@@ -2,21 +2,22 @@ import { TasksSkeleton } from "@/components/pages/Tasks"
 import { EmptyMessage } from "@/components/shared"
 import { Card } from "@/components/shared/Card/Card"
 import { useLazyGetTasksQuery } from "@/data-layer/tasks"
-import { useDebounce } from "use-debounce";
-import { useEffect } from 'react';
+import { useDebouncedCallback } from "use-debounce";
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/store"
 
 const Tasks = () => {
 
   const filter = useSelector((store: RootState) => store.tasks.filter)
-  const [debouncedValue] = useDebounce(filter, 500);
 
   const [trigger, { isLoading, data: tasks }] = useLazyGetTasksQuery()
 
-  useEffect(() => {
-    trigger(filter)
-  }, [debouncedValue])
+  useDebouncedCallback(
+    () => {
+      trigger(filter)
+    },
+    1000
+  );
 
   if (isLoading || !tasks) return <TasksSkeleton />
 

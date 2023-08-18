@@ -1,4 +1,4 @@
-export const Pagination = ({}) => {
+export const Pagination = ({ }) => {
     
     const paginate = () => {
 
