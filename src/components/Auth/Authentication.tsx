@@ -16,7 +16,7 @@ export function Authentication() {
                     {authentication.user.username}
                 </Button>
             ) : (
-                <Button asChild className="w-16">
+                <Button asChild className="mt-8 md:mt-0 w-16">
                     <Link to="/auth/login">
                         Login
                     </Link>
