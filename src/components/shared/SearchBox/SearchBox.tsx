@@ -1,25 +1,25 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { TextField } from '../TextField/TextField'
-import { useDebounce } from "use-debounce";
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/app/store';
+import { saveFilterValue } from '@/app/tasksSlice';
 
 
 export const SearchBox = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [debouncedValue] = useDebounce(inputValue, 500);
+  const filter = useSelector((store: RootState) => store.tasks.filter)
+  const dispatch = useDispatch()
+
 
   const InputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setInputValue(value);
+    dispatch(saveFilterValue(value));
   }
 
-  // useEffect(() => {
-  //   trigger(debouncedValue)
-  // }, [debouncedValue])
-
   return (
-    <form className='flex items-center relative'>
-      <TextField className='w-36 md:w-96 p-0' value={inputValue} placeholder='Search by title or description...' onChange={InputChangeHandler} />
+    <form className='flex items-center relative' onSubmit={(e) => {
+      e.preventDefault()
+    }}>
+      <TextField className='w-36 md:w-96 p-0' value={filter} placeholder='Search by title or description...' onChange={InputChangeHandler} />
 
       <button className='absolute right-4 top-3 hidden md:block'>
         <MagnifyingGlassIcon className='w-7' />

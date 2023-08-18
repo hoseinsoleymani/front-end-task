@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface User {
@@ -21,7 +21,6 @@ export const authenticationSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action: PayloadAction<User>) => {
-      console.log(current(state));
       state.user = action.payload;
       state.isAuthenticated = true;
     },

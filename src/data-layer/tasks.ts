@@ -64,4 +64,5 @@ export const {
   useAddTaskMutation,
   useUpdateTaskMutation,
   useDeleteTaskMutation,
+  useLazyGetTasksQuery,
 } = tasks;
