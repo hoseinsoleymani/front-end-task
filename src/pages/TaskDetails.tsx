@@ -16,7 +16,7 @@ const TaskDetails = () => {
                 <div>
                     <FormOverview title={task!.title} extraText={task!.description} />
 
-                    <div className="flex flex-col gap-y-4 mt-6">
+                    <div className="flex flex-col items-start gap-y-4 mt-6">
                         <DeleteTask id={id!} />
                         <EditTask id={id!} />
                     </div>

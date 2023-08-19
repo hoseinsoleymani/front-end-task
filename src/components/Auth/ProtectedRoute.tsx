@@ -7,8 +7,8 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute = ({ redirectPath = '/auth/login' }: ProtectedRouteProps) => {
-  const isAuthenticated = true;
-  // useSelector((store: RootState) => store.authentication.isAuthenticated)
+  const isAuthenticated = useSelector((store: RootState) => store.authentication.isAuthenticated)
+
   if (!isAuthenticated) {
     return <Navigate to={redirectPath} replace />;
   }

@@ -13,7 +13,7 @@ export const EditTask = ({ id }: EditTaskProps) => {
     const [editTask, { isLoading, error }] = useUpdateTaskMutation()
     const [showEditForm, setShowEditForm] = useState(false)
 
-    if (error) return toast.error(`Error occurred ${error}`)
+    if (error) return <>{toast.error(`Error occurred ${error}`)}</>
 
 
     const submitForm = ({ title, description }: FieldValues) => {
@@ -23,7 +23,7 @@ export const EditTask = ({ id }: EditTaskProps) => {
     };
 
     return (
-        <div>
+        <div className="w-full">
             <button onClick={() => { setShowEditForm(prev => !prev) }}>
                 <PencilIcon className="w-7 text-gray-900" />
             </button>

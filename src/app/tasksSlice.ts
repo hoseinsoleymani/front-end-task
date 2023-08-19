@@ -16,6 +16,9 @@ export const tasksSlice = createSlice({
     saveFilterValue: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
     },
+    saveTrigger: () => {
+        
+    }
   },
 });
 

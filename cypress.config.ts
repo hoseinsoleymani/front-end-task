@@ -30,7 +30,7 @@ export default defineConfig({
     specPattern: 'src/**/**.cy.tsx',
     supportFile: 'cypress/support/component.tsx',
 
-    setupNodeEvents(on, config) {
+    setupNodeEvents(_, config) {
       return config;
     },
   },

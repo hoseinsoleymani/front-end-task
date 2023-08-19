@@ -4,5 +4,6 @@ export * from './FormContainer/FormContainer';
 export * from './FormOverview/FormOverview';
 export * from './Loading/Loading';
 export * from './Nav/Nav';
+export * from './Pagination/Pagination';
 export * from './SearchBox/SearchBox';
 export * from './TextField/TextField';
