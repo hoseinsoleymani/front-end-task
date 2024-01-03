@@ -10,24 +10,31 @@ import { RootState } from "@/app/store"
 const Tasks = () => {
 
   const search = useSelector((store: RootState) => store.tasks.filter)
-  const [debouncedValue] = useDebounce(search, 500);
-  const [activePage, setActivePage] = useState("1");
+  // const [debouncedValue] = useDebounce(search, 500);
+  // const [activePage, setActivePage] = useState("1");
   const [trigger, { isLoading, data: tasks }] = useLazyGetTasksQuery()
 
-  useEffect(() => {
-    trigger({ search, _page: activePage, _limit: LIMIT })
-  }, [debouncedValue])
+  // useEffect(() => {
+  //   trigger({ search, _page: activePage, _limit: LIMIT })
+  // }, [debouncedValue])
 
 
   if (isLoading || !tasks) return <TasksSkeleton />
 
   const paginationHandler = (data: { selected: number }) => {
-    //       const total = res.headers.get("x-total-count");
-    //       setPageCount(Math.ceil(total / limit));
     const currentPage = String(data.selected + 1)
-    setActivePage(currentPage)
+    // setActivePage(currentPage)
     trigger({ search, _page: currentPage, _limit: LIMIT })
   }
+
+  useEffect(() => {
+    console.log("called")
+    fetch("http://127.0.0.1:5173/api/tasks", {
+      method: "GET",
+    }).then((res) => {
+      console.log(res)
+    })
+  }, [])
 
 
   return (

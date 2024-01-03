@@ -7,14 +7,30 @@ import { store } from './app/store'
 import { BrowserRouter } from 'react-router-dom'
 import { Loading } from './components/shared/index.js'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Suspense fallback={<Loading />}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </Suspense>
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+async function deferRender() {
+  const { worker } = await import("@/mocks/browser")
+  return worker.start({
+    onUnhandledRequest(request, print) {
+      if (!request.url.includes('/api')) {
+        return
+      }
+
+      print.warning()
+    },
+    quiet: true
+  })
+}
+
+deferRender().then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <Suspense fallback={<Loading />}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </Suspense>
+      </BrowserRouter>
+    </React.StrictMode>,
+  )
+})
