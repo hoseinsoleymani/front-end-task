@@ -3,8 +3,8 @@ import { HttpResponse } from 'msw';
 import { users } from '../db/users';
 import type { IRequest, LoginRequestBody } from '../types';
 
-export const login = ({ request }: IRequest) => {
-  const { password, username } = request.json() as LoginRequestBody;
+export const login = async ({ request }: IRequest) => {
+  const { password, username } = (await request.json()) as LoginRequestBody;
 
   if (!username && !(password.length > 8))
     return new HttpResponse(null, {

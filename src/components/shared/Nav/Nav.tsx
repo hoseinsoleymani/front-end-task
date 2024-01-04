@@ -24,7 +24,7 @@ export const Nav = () => {
   return (
     <div className="flex items-center justify-between py-7">
       <nav
-        className={`fixed inset-y-0 z-10 flex w-64 flex-col gap-y-3.5 bg-white p-7 shadow-md transition-all md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:gap-x-3.5 md:bg-transparent md:px-0 md:py-6 md:shadow-none${
+        className={`fixed inset-y-0 z-10 flex w-64 flex-col gap-y-3.5 bg-white p-7 transition-all md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:gap-x-3.5 md:bg-transparent md:px-0 md:py-6 md:shadow-none${
           showSidebar ? 'left-0' : '-left-64'
         }`}
       >

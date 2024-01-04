@@ -38,7 +38,7 @@ export const ListBox = ({
       >
         <span>{selected}</span>
       </Listbox.Button>
-      <Listbox.Options className="w-full min-w-[7rem] rounded-sm bg-white shadow-sm">
+      <Listbox.Options className="w-full min-w-[7rem] rounded-sm bg-gray-100 shadow-sm">
         {items.map((item) => (
           <Listbox.Option
             key={item.id}

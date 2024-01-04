@@ -21,6 +21,7 @@ module.exports = init({
     'cypress/no-force': 'off',
     'import/no-extraneous-dependencies': 'warn',
     'import/no-self-import': 'warn',
+    '@typescript-eslint/await-thenable': 'warn',
   },
   settings: {
     'import/parsers': {

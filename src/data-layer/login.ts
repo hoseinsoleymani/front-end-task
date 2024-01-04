@@ -11,8 +11,6 @@ const login = ({ username, password }: RequestBody) =>
   api.post(`/api/login`, { username, password });
 
 export const useLogin = () =>
-  useMutation(
-    ['login'],
-    ({ username: title, password: description }: RequestBody) =>
-      login({ username: title, password: description }),
+  useMutation(['login'], ({ username, password }: RequestBody) =>
+    login({ username, password }),
   );

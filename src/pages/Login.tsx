@@ -1,4 +1,3 @@
-// import { RootState } from "@/app/store"
 import { Navigate } from 'react-router-dom';
 
 import { Form } from '@/components/pages/Login';

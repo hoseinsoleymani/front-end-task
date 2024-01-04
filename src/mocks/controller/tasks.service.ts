@@ -1,6 +1,5 @@
 import { HttpResponse } from 'msw';
 
-import { tasks } from '../db/tasks';
 import type {
   CreateTaskRequestBody,
   DeleteTaskRequestBody,
@@ -10,9 +9,12 @@ import type {
 } from '../types';
 import type { SortField } from '../utils';
 import { sortTasks } from '../utils';
+import { tasks } from '../db/tasks';
 
 export const getTasks = ({ request }: IRequest) => {
   const url = new URL(request.url);
+
+  console.log(tasks);
 
   const isDescending =
     !(url.searchParams.get('isDescending') === 'false') || false;
@@ -55,8 +57,8 @@ export const getTask = ({ request }: IRequestGetTask) => {
   return HttpResponse.json(findTask);
 };
 
-export const createTask = ({ request }: IRequest) => {
-  const requestBody = request.json() as CreateTaskRequestBody;
+export const createTask = async ({ request }: IRequest) => {
+  const requestBody = (await request.json()) as CreateTaskRequestBody;
 
   if (!requestBody)
     return new HttpResponse(null, {
@@ -74,8 +76,8 @@ export const createTask = ({ request }: IRequest) => {
   });
 };
 
-export const updateTask = ({ request }: IRequest) => {
-  const requestBody = request.json() as EditTaskRequestBody;
+export const updateTask = async ({ request }: IRequest) => {
+  const requestBody = (await request.json()) as EditTaskRequestBody;
 
   if (!requestBody.id)
     return new HttpResponse(null, {
@@ -97,8 +99,8 @@ export const updateTask = ({ request }: IRequest) => {
   });
 };
 
-export const deleteTask = ({ request }: IRequest) => {
-  const requestBody = request.json() as DeleteTaskRequestBody;
+export const deleteTask = async ({ request }: IRequest) => {
+  const requestBody = (await request.json()) as DeleteTaskRequestBody;
 
   if (!requestBody.id)
     return new HttpResponse(null, {

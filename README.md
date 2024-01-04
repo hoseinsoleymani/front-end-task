@@ -1,108 +1,82 @@
-# React + Vite + TypeScript + JSON Server - Todo App Manager
+# Task Manager App
 
-This is a Todo App Manager built using React, Vite, TypeScript, and JSON Server. It allows users to manage their tasks by providing features like task management, adding, deleting, and updating tasks, filtering tasks, protected routes, paginating task list, saving tasks in a JSON file, component testing using Cypress, and type safety.
+This is a task manager app built using Vite, React, MSW for mocking API calls, Cypress and React Testing Library for testing, and pnpm as the package manager.
 
-## Getting Started
+## Main Features
+- **Tasks Manager**: Allows users to manage their tasks efficiently.
+- **Add/Delete/Update Tasks**: Users can add new tasks, delete existing tasks or update task details.
+- **Filter Tasks**: Provides options to filter tasks based on different criteria.
+- **Sort Tasks**: By Id and Alphabet.
+- **Protected Route**: Implements authentication and provides protected routes for authorized users only.
+- **Save Tasks as a mock data**.
+- **Component Test by Cypress**: Includes component tests using Cypress for ensuring functionality and reliability.
+- **Type Safe**: Utilizes TypeScript for static typing and enhanced code quality.
 
-To use the app, please follow the steps below:
+## Prerequisites
+Make sure you have:
 
-1. Clone the repository:
+**Node.js > 16 installed**. You can download it from the official [Node.js website](https://nodejs.org/).
+**Version of pnpm used:** 6.14.7 ([Download here](https://www.npmjs.com/package/pnpm/v/6.14.7))
 
-```bash
-git clone <repository-url>
-```
+## Installation
+1. Install pnpm by running the following command:
+   ```bash
+   npm install -g pnpm
+   ```
 
-2. Install dependencies:
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/task-manager-app.git
+   ```
 
-```bash
-pnpm i
-```
+3. Navigate to the project directory:
+   ```bash
+   cd task-manager-app
+   ```
 
-3. Start the development server:
+4. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
+## Usage
+### Development
+To start the development server, run:
 ```bash
 pnpm dev
 ```
 
-4. Open your browser and navigate to `http://localhost:3000` to access the app.
+### Testing
+To run tests using Cypress and React Testing Library, run:
+```bash
+pnpm test
+```
 
-## Features
+### Build
+To build the app for production, run:
+```bash
+pnpm build
+```
 
-- Tasks Manager: Allows users to manage their tasks efficiently.
-- Add/Delete/Update Tasks: Users can add new tasks, delete existing tasks or update task details.
-- Filter Tasks: Provides options to filter tasks based on different criteria.
-- Protected Route: Implements authentication and provides protected routes for authorized users only.
-- Paginate Task List: Displays a limited number of tasks per page with pagination support.
-- Save Tasks in a JSON File: Persists task data in a JSON file for future reference.
-- Component Test by Cypress: Includes component tests using Cypress for ensuring functionality and reliability.
-- Type Safe: Utilizes TypeScript for static typing and enhanced code quality.
+### Preview
+To preview the production build locally, run:
+```bash
+pnpm preview
+```
 
-## Commands
-
-Here is a list of available commands:
-
-- Install Dependencies:
-  ```bash
-  pnpm i
-  ```
-
-- Run Tests:
-  ```bash
-  pnpm test
-  ```
-
-- Lint:
-  ```bash
-  pnpm lint
-  ```
-
-- Build:
-  ```bash
-  pnpm build
-  ```
-
-## Prerequisites
-
-Make sure you have the following prerequisites installed:
-
-- Node.js > 16. You can download it from the [official Node.js website](https://nodejs.org/).
-- pnpm. You can install it by following the instructions on the [official pnpm website](https://pnpm.io/).
+### Linting
+To lint the codebase, run:
+```bash
+pnpm lint
+```
 
 ## Contribution Guide
 
-Thank you for considering contributing to the React + Vite + TypeScript + JSON Server - Todo App Manager! We welcome any contributions that can help improve the project.
+1. Fork the repository on GitHub.
+2. Clone your fork locally.
+3. Create a new branch with a descriptive name: git checkout -b feature/my-new-feature.
+4. Make your changes and commit them: git commit -m 'Add some feature'.
+5. Push to the branch: git push origin feature/my-new-feature.
+6. Submit a pull request with full remarks documenting your changes.
 
-To contribute, please follow these steps:
-
-1. Fork the repository by clicking on the "Fork" button on the top right corner of this page.
-2. Clone your forked repository to your local machine using the following command:
-   ```bash
-   git clone <forked-repository-url>
-   ```
-3. Install the project dependencies by running the following command:
-   ```bash
-   pnpm i
-   ```
-4. Create a new branch for your contribution:
-   ```bash
-   git checkout -b <branch-name>
-   ```
-5. Make your desired changes or additions to the codebase.
-6. Test your changes locally to ensure they work as expected:
-   ```bash
-   pnpm dev
-   ```
-7. Commit your changes with a descriptive commit message:
-   ```bash
-   git commit -m "Your commit message"
-   ```
-8. Push your changes to your forked repository:
-   ```bash
-   git push origin <branch-name>
-   ```
-9. Go to the original repository on GitHub and create a new pull request by clicking on the "New pull request" button.
-10. Provide a clear and concise description of your changes in the pull request, and submit it.
-
-Thank you for contributing to our project!
-
-Enjoy using the Todo App Manager!
+We welcome contributions from everyone! If you have any questions or need assistance with contributing to this project, please feel free to reach out.
