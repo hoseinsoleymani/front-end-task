@@ -1,7 +1,5 @@
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from 'react';
 
 export const EmptyMessage = ({ children }: PropsWithChildren) => {
-    return (
-        <h1 className="text-4xl text-center mt-10 font-bold">{children}</h1>
-    )
-}
+  return <h1 className="mt-10 text-center text-4xl font-bold">{children}</h1>;
+};

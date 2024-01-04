@@ -1,33 +1,30 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../shared";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/store";
-import { logout } from "@/app/authenticationSlice";
+import { Link, useNavigate } from 'react-router-dom';
 
-export function Authentication() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate();
+import { useAuthenticationStore } from '@/store';
 
-    const authentication = useSelector((store: RootState) => store.authentication)
+import { Button } from '../shared/Button/Button';
 
-    const logoutHandler = () => {
-        dispatch(logout())
-        navigate("/auth/login")
-    }
+export const Authentication = () => {
+  const navigate = useNavigate();
 
-    return <div>
-        {
-            authentication.isAuthenticated && !!authentication.user ? (
-                <Button className="w-16" onClick={logoutHandler}>
-                    {authentication.user.username}
-                </Button>
-            ) : (
-                <Button asChild className="mt-8 md:mt-0 w-16">
-                    <Link to="/auth/login">
-                        Login
-                    </Link>
-                </Button>
-            )
-        }
+  const { isUserAuthenticated, user, logout } = useAuthenticationStore();
+
+  const logoutHandler = () => {
+    logout();
+    navigate('/auth/login');
+  };
+
+  return (
+    <div>
+      {isUserAuthenticated && user != null ? (
+        <Button className="w-16" onClick={logoutHandler}>
+          {user.username}
+        </Button>
+      ) : (
+        <Button asChild className="mt-8 w-16 md:mt-0">
+          <Link to="/auth/login">Login</Link>
+        </Button>
+      )}
     </div>
-}
+  );
+};

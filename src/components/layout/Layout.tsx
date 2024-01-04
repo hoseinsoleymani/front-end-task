@@ -1,19 +1,15 @@
-import { PropsWithChildren } from 'react'
-import { Nav } from '../shared'
+import type { PropsWithChildren } from 'react';
+
+import { Nav } from '../shared';
 
 export const Layout = ({ children }: PropsWithChildren) => {
-    return (
-        <>
-            <header className="container">
+  return (
+    <>
+      <header className="container">
+        <Nav />
+      </header>
 
-                <Nav />
-            </header>
-
-
-
-            <main className='mb-10'>
-                {children}
-            </main>
-        </>
-    )
-}
+      <main className="mb-10">{children}</main>
+    </>
+  );
+};

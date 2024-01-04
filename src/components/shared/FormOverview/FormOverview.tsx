@@ -1,18 +1,13 @@
 interface FormOverviewProps {
-    title: string;
-    extraText: string;
+  title: string;
+  extraText: string;
 }
 
 export const FormOverview = ({ title, extraText }: FormOverviewProps) => {
-    return (
-        <div>
-            <h1 className="text-primary-200 text-2xl font-bold">
-                {title}
-            </h1>
-            <span className="text-gray-400 text-base font-normal">
-                {extraText}
-            </span>
-        </div>
-
-    )
-}
+  return (
+    <div>
+      <h1 className="text-2xl font-bold text-primary-200">{title}</h1>
+      <span className="text-base font-normal text-gray-400">{extraText}</span>
+    </div>
+  );
+};

@@ -1,8 +1,7 @@
-import { mount } from 'cypress/react18'
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
-import './commands'
-import { store } from '../../src/app/store'
+import './commands';
+
+import { mount } from 'cypress/react18';
+import { BrowserRouter } from 'react-router-dom';
 
 declare global {
   namespace Cypress {
@@ -26,19 +25,11 @@ declare global {
        })
        ```
        * */
-      render: typeof mount
-
-      // TODO: Remove these after migrating all component tests to use GraphQL API
-      enableInterceptor(name: string): Chainable<null>
+      render: typeof mount;
     }
   }
 }
 
 Cypress.Commands.add('render', (jsx, options) =>
-  mount(
-    <Provider store={store}>
-      <BrowserRouter>{jsx}</BrowserRouter>
-    </Provider>,
-    options,
-  ),
-)
+  mount(<BrowserRouter>{jsx}</BrowserRouter>, options),
+);

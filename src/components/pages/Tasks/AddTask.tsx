@@ -1,20 +1,27 @@
-import { useAddTaskMutation } from "@/data-layer/tasks";
+import type { FieldValues } from 'react-hook-form';
+import { toast } from 'react-toastify';
+
+import { refetchTasksQueries } from '@/data-layer';
+import { useCreateTask } from '@/data-layer/createTask';
+
 import { Form } from './Form';
-import { FieldValues } from "react-hook-form";
-import { toast } from "react-toastify"
+
 export const AddTask = () => {
-    const [createTask, { isLoading, error }] = useAddTaskMutation()
+  const { mutate: createTask, isLoading, error } = useCreateTask();
 
-    if (error) return <>{toast.error(`Error occurred ${error}`)}</>
+  if (error) return <>{toast.error(`Error occurred ${error}`)}</>;
 
-    const submitForm = ({ title, description }: FieldValues) => {
-        createTask({ title, description }).then(() => {
-            toast.success("Successfully Created!")
-        })
-    };
+  const submitForm = ({ title, description }: FieldValues) => {
+    createTask(
+      { title, description },
+      {
+        onSuccess() {
+          toast.success('Successfully Created!');
+          void refetchTasksQueries();
+        },
+      },
+    );
+  };
 
-
-    return (
-        <Form submitForm={submitForm} loading={isLoading} />
-    )
-}
+  return <Form submitForm={submitForm} loading={isLoading} />;
+};

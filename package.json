@@ -2,7 +2,7 @@
   "name": "front-end-task",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -43,6 +43,9 @@
     "cypress": "^12.17.4",
     "cypress-vite": "^1.4.2",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -57,5 +60,9 @@
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,md,html,css,yaml,yml}": "prettier --write"
   }
 }

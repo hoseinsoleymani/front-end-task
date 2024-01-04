@@ -27,13 +27,15 @@
     "types": [
       "vite/client",
       "cypress",
-      "@testing-library/cypress",
-    ],
+      "@testing-library/cypress"
+    ]
   },
   "include": [
     "src",
     "cypress",
     "cypress.config.ts",
+    ".eslintrc.js",
+    "node_modules/.pnpm/cypress@12.17.4/node_modules/cypress/types/cypress-global-vars.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

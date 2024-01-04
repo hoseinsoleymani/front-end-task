@@ -1,15 +1,17 @@
-import { RootState } from "@/app/store";
-import { useSelector } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from 'react-router-dom';
+
+import { useAuthenticationStore } from '@/store';
 
 interface ProtectedRouteProps {
   redirectPath?: string;
 }
 
-export const ProtectedRoute = ({ redirectPath = '/auth/login' }: ProtectedRouteProps) => {
-  const isAuthenticated = useSelector((store: RootState) => store.authentication.isAuthenticated)
+export const ProtectedRoute = ({
+  redirectPath = '/auth/login',
+}: ProtectedRouteProps) => {
+  const { isUserAuthenticated } = useAuthenticationStore();
 
-  if (!isAuthenticated) {
+  if (!isUserAuthenticated) {
     return <Navigate to={redirectPath} replace />;
   }
 

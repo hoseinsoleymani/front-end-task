@@ -1,29 +1,35 @@
-import { useGetTaskQuery } from "@/data-layer/tasks"
-import { useParams } from "react-router-dom"
-import { FormContainer, FormOverview } from "@/components/shared"
-import { DeleteTask, EditTask, TaskDetailsSkeleton } from "@/components/pages/Tasks"
+import { useParams } from 'react-router-dom';
+
+import {
+  DeleteTask,
+  EditTask,
+  TaskDetailsSkeleton,
+} from '@/components/pages/Tasks';
+import { FormContainer, FormOverview } from '@/components/shared';
+import { useGetTask } from '@/data-layer';
 
 const TaskDetails = () => {
-    const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>();
+  const { data: task, isLoading } = useGetTask(id!);
 
-    const { data: task, isLoading } = useGetTaskQuery(id!)
+  if (isLoading || !task?.data) return <TaskDetailsSkeleton />;
 
-    if (isLoading || !task) return <TaskDetailsSkeleton />
+  const { title, description } = task.data;
 
-    return (
-        <section className="container">
-            <FormContainer>
-                <div>
-                    <FormOverview title={task!.title} extraText={task!.description} />
+  return (
+    <section className="container">
+      <FormContainer>
+        <div>
+          <FormOverview title={title} extraText={description} />
 
-                    <div className="flex flex-col items-start gap-y-4 mt-6">
-                        <DeleteTask id={id!} />
-                        <EditTask id={id!} />
-                    </div>
-                </div>
-            </FormContainer>
-        </section>
-    )
-}
+          <div className="mt-6 flex w-full flex-col items-start gap-y-4">
+            <DeleteTask id={id!} />
+            <EditTask id={id!} />
+          </div>
+        </div>
+      </FormContainer>
+    </section>
+  );
+};
 
-export default TaskDetails
+export default TaskDetails;
