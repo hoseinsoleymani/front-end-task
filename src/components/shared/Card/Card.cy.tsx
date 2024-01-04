@@ -2,7 +2,7 @@ import { Card } from './Card';
 
 const title = 'Card Title';
 const description = 'Card description just';
-const id = '1';
+const id = 1;
 
 it('should render card', () => {
   cy.render(<Card title={title} description={description} id={id} />);

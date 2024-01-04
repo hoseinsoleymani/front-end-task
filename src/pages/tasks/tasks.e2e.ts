@@ -1,7 +1,3 @@
-import { CYPRESS_BASE_URL } from 'cypress/support/commands';
-
-// import { tasks } from '../../mocks/db/tasks';
-
 beforeEach(() => {
   //   cy.login()
 });
